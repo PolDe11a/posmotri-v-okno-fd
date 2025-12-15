@@ -42,7 +42,7 @@ ol {
 
 .content {
   inline-size: 100%;
-  padding: 133px 30px;
+  margin: 133px 30px;
   display: flex;
   gap: 30px;
   align-items: end;
@@ -84,6 +84,20 @@ ol {
   gap: 5px;
   align-items: center;
   width: fit-content;
+}
+
+.search-form__label:hover .search-form__label-text {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid currentColor;
+  outline-offset: 2px;
 }
 
 .search-form__textfield::placeholder {
@@ -137,7 +151,25 @@ ol {
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-weight: 700;
-  block-size: 34px;
+  min-block-size: 34px;
+}
+
+.button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.button:active {
+  background-color: #545050;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
 }
 
 .search-form__submit-button {
@@ -166,7 +198,7 @@ ol {
 }
 
 .content__list-container {
-  max-block-size: 298px;
+  block-size: 298px;
   overflow: auto;
   display: flex;
   flex-direction: column;
@@ -196,6 +228,7 @@ ol {
 
 .content__video-card-description-container {
   flex-grow: 1;
+  max-inline-size: 196px;
 }
 
 .content__video-card-title {
@@ -203,12 +236,20 @@ ol {
   font-size: 30px;
   font-weight: 700;
   text-transform: uppercase;
+  line-height: 100%;
+  margin-block-end: 6px;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .content__video-card-description {
   line-height: 90%;
-  line-clamp: 4;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
 }
 
 .content__video-card-thumbnail {
@@ -222,38 +263,7 @@ ol {
   flex-shrink: 0;
 }
 
-.search-form__textfield:focus {
-  outline: none;
-}
 
-.search-form__label:has(:focus-visible) {
-  outline: 1px solid currentColor;
-  outline-offset: 2px;
-}
-
-
-.search-form__label:hover .search-form__label-text {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.button:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.button:active {
-  background-color: #545050;
-}
-
-button:focus {
-  outline: none;
-}
-
-button:focus-visible {
-  outline: 1px solid #fff;
-  outline-offset: 1px;
-}
 
 .content__card-link {
   display: block;
@@ -276,8 +286,6 @@ button:focus-visible {
 .content__card-link:focus-visible {
   outline: 1px solid currentColor;
 }
-
-*/
 
 /* Кастомный скроллбар */
 .custom-scrollbar::-webkit-scrollbar {
